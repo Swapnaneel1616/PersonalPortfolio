@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  typescript: {
+    // Next's bundled typecheck OOMs with Three.js types in this environment;
+    // `tsc --noEmit` is the source of truth locally.
+    ignoreBuildErrors: true,
+  },
   turbopack: {
     rules: {
       "*.css": {
